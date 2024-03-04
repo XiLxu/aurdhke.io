@@ -14,17 +14,27 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background: linear-gradient(to bottom right, #4e7fff, #76a9ff); /* 设置整体背景为蓝色渐变 */
+    }
+    .content {
+        position: relative;
+        width: 100%;
+        height: 100%;
     }
     .top-section {
-        flex: 1;
+        position: relative;
         width: 100%;
-        background: url('https://github.com/XiLxu/aurdhke.io/blob/93dac3a721b1be190ae9bcd54430f3f0371b9b48/wangzhantupian.jpg'); /* 上半部分背景图片 */
+        height: 50%;
+        background: url('your_image_url.jpg'); /* 上半部分背景图片 */
         background-size: cover;
+        background-attachment: fixed; /* 固定背景图片 */
+        filter: blur(10px); /* 添加磨砂效果 */
         border-bottom: 2px solid #fff; /* 添加分隔线 */
     }
     .bottom-section {
-        flex: 1;
+        position: relative;
         width: 100%;
+        height: 50%;
         background: linear-gradient(to bottom, rgba(128, 0, 128, 0.5), rgba(128, 0, 128, 0.8)); /* 下半部分半透明紫色渐变 */
         border-top: 2px solid #fff; /* 添加分隔线 */
     }
@@ -38,9 +48,9 @@
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
         position: absolute; /* 将按钮定位在页面中间 */
-        top: 25%; /* 往上移动二分之一 */
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         z-index: 1; /* 提高按钮的层级 */
     }
     button:hover {
@@ -48,9 +58,9 @@
     }
     .text {
         position: absolute;
-        top: 50%;
+        top: calc(50% + 50px); /* 让文字在按钮下方 50px 的位置 */
         left: 50%;
-        transform: translate(-50%, 0);
+        transform: translateX(-50%);
         text-align: center;
         color: white;
         font-size: 16px;
@@ -77,24 +87,21 @@
 </head>
 <body>
 
-<div class="top-section">
-    <div class="curves">
-        <div class="curve"></div>
+<div class="content">
+    <div class="top-section">
+        <div class="curves"></div>
     </div>
     <button onclick="redirectToGamePage()">开始游戏</button>
     <div class="text">点击按钮开始游戏</div>
-</div>
-
-<div class="bottom-section">
-    <div class="curves">
-        <div class="curve"></div>
+    <div class="bottom-section">
+        <div class="curves"></div>
     </div>
 </div>
 
 <script>
 function redirectToGamePage() {
     // 修改此处的网址为你想要跳转的网页地址
-    window.location.href = "https://www.baidu.com/";
+    window.location.href = "https://example.com/game";
 }
 </script>
 
