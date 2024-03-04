@@ -1,51 +1,89 @@
-<!doctype html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>开始游戏</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* 隐藏页面溢出内容 */
+        background-color: #fff;
+    }
+    canvas {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1; /* 将 canvas 移动到最底层，位于背景下方 */
+    }
+    button {
+        padding: 15px 30px;
+        font-size: 20px;
+        background-color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+</head>
+<body>
 
-{% seo %}
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="{{ '/assets/js/respond.js' | relative_url }}"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="{{ '/assets/css/ie.css' | relative_url }}">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    {% include head-custom.html %}
-  </head>
-  <body>
-      <div id="header">
-        <nav>
-          <ul>
-            <li class="fork"><a href="{{ site.github.repository_url }}">View On GitHub</a></li>
-            {% if site.show_downloads %}
-              <li class="downloads"><a href="{{ site.github.zip_url }}">ZIP</a></li>
-              <li class="downloads"><a href="{{ site.github.tar_url }}">TAR</a></li>
-              <li class="title">DOWNLOADS</li>
-            {% endif %}
-          </ul>
-        </nav>
-      </div><!-- end header -->
+<button onclick="redirectToGamePage()">开始游戏</button>
 
-    <div class="wrapper">
+<script>
+function redirectToGamePage() {
+    // 修改此处的网址为你想要跳转的网页地址
+    window.location.href = "https://example.com/game";
+}
 
-      <section>
-        <div id="title">
-          <h1>{{ site.title | default: site.github.repository_name }}</h1>
-          <p>{{ site.description | default: site.github.project_tagline }}</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></span>
-        </div>
+// 创建 canvas 元素
+var canvas = document.createElement('canvas');
+document.body.appendChild(canvas);
+var ctx = canvas.getContext('2d');
 
-        {{ content }}
+// 设置 canvas 尺寸为窗口尺寸
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-      </section>
+// 定义线条动画
+var lines = [];
+for (var i = 0; i < 50; i++) {
+    lines.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        length: Math.random() * 100 + 50,
+        speed: Math.random() * 0.5 + 0.1
+    });
+}
 
-    </div>
-  </body>
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = 'rgba(255, 105, 180, 0.3)'; // 设置线条颜色和透明度
+    ctx.lineWidth = 2;
+    for (var i = 0; i < lines.length; i++) {
+        ctx.beginPath();
+        ctx.moveTo(lines[i].x, lines[i].y);
+        ctx.lineTo(lines[i].x, lines[i].y + lines[i].length);
+        ctx.stroke();
+
+        lines[i].y += lines[i].speed;
+
+        if (lines[i].y > canvas.height) {
+            lines[i].y = -lines[i].length;
+        }
+    }
+    requestAnimationFrame(draw);
+}
+
+// 开始绘制动画
+draw();
+</script>
+
+</body>
 </html>
