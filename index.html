@@ -18,17 +18,14 @@
     .top-section {
         flex: 1;
         width: 100%;
-        background: linear-gradient(to bottom right, #4e7fff, #76a9ff); /* 上半部分渐变蓝色 */
-        background-attachment: fixed;
+        background: url('your_image_url.jpg'); /* 上半部分背景图片 */
         background-size: cover;
         border-bottom: 2px solid #fff; /* 添加分隔线 */
     }
     .bottom-section {
         flex: 1;
         width: 100%;
-        background: linear-gradient(to bottom right, #FF69B4, #FFC0CB); /* 下半部分渐变粉色 */
-        background-attachment: fixed;
-        background-size: cover;
+        background: linear-gradient(to bottom, rgba(128, 0, 128, 0.5), rgba(128, 0, 128, 0.8)); /* 下半部分半透明紫色渐变 */
         border-top: 2px solid #fff; /* 添加分隔线 */
     }
     button {
@@ -41,13 +38,23 @@
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
         position: absolute; /* 将按钮定位在页面中间 */
-        top: 50%;
+        top: 25%; /* 往上移动二分之一 */
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
         z-index: 1; /* 提高按钮的层级 */
     }
     button:hover {
         background-color: #0056b3; /* 鼠标悬停时背景颜色变深蓝色 */
+    }
+    .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        text-align: center;
+        color: white;
+        font-size: 16px;
+        z-index: 1;
     }
     .curves {
         position: absolute; /* 将曲线定位在页面中间 */
@@ -74,9 +81,9 @@
     <div class="curves">
         <div class="curve"></div>
     </div>
+    <button onclick="redirectToGamePage()">开始游戏</button>
+    <div class="text">点击按钮开始游戏</div>
 </div>
-
-<button onclick="redirectToGamePage()">开始游戏</button>
 
 <div class="bottom-section">
     <div class="curves">
