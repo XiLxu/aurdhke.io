@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Road to Aurora Game</title>
+<title>Road to Aurora Odyssey</title>
 <style>
     body {
         margin: 0;
         padding: 0;
-        overflow: hidden; /* 隐藏页面溢出内容 */
+        overflow: hidden;
         height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(to bottom right, #4e7fff, #76a9ff); /* 设置整体背景为蓝色渐变 */
+        background: linear-gradient(to bottom right, #4e7fff, #76a9ff);
     }
     .content {
         position: relative;
@@ -25,41 +25,41 @@
         position: relative;
         width: 100%;
         height: 50%;
-        background: url('wangzhantupian.jpg'); /* 上半部分背景图片 */
+        background: url('wangzhantupian.jpg'); 
         background-size: cover;
-        background-attachment: fixed; /* 固定背景图片 */
-        filter: blur(10px); /* 添加磨砂效果 */
-        border-bottom: 2px solid #fff; /* 添加分隔线 */
+        background-attachment: fixed; 
+        filter: blur(10px); 
+        border-bottom: 2px solid #fff;
     }
     .bottom-section {
         position: relative;
         width: 100%;
         height: 50%;
-        background: linear-gradient(to bottom, rgba(128, 0, 128, 0.5), rgba(128, 0, 128, 0.8)); /* 下半部分半透明紫色渐变 */
-        border-top: 2px solid #fff; /* 添加分隔线 */
+        background: linear-gradient(to bottom, rgba(128, 0, 128, 0.5), rgba(128, 0, 128, 0.8));
+        border-top: 2px solid #fff; 
     }
     button {
         padding: 15px 30px;
         font-size: 20px;
-        background-color: #007bff; /* 按钮背景色为蓝色 */
-        color: #fff; /* 文字颜色为白色 */
+        background-color: #007bff;
+        color: #fff; 
         border: none;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
-        position: absolute; /* 将按钮定位在页面中间 */
+        position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        z-index: 1; /* 提高按钮的层级 */
+        z-index: 1; 
         margin-top: -25vh;
     }
     button:hover {
-        background-color: #0056b3; /* 鼠标悬停时背景颜色变深蓝色 */
+        background-color: #0056b3;
     }
     .text {
         position: absolute;
-        top: calc(50% + 50px); /* 让文字在按钮下方 50px 的位置 */
+        top: calc(50% + 50px);
         left: 50%;
         transform: translateX(-50%);
         text-align: center;
@@ -68,7 +68,7 @@
         z-index: 1;
     }
     .curves {
-        position: absolute; /* 将曲线定位在页面中间 */
+        position: absolute; 
         top: 25%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -92,7 +92,7 @@
     <div class="top-section">
         <div class="curves"></div>
     </div>
-    <button onclick="redirectToGamePage()">Road to Aurora Game</button>
+    <button onclick="redirectToGamePage()">Road to Aurora Odyssey</button>
     <div class="text">Get ready for an exciting adventure</div>
     <div class="bottom-section">
         <div class="curves"></div>
@@ -101,7 +101,6 @@
 
 <script>
 function redirectToGamePage() {
-    // 修改此处的网址为你想要跳转的网页地址
     window.location.href = "https://www.proxyaurora.com/";
 }
 </script>
